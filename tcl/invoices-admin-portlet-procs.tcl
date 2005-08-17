@@ -39,7 +39,7 @@ namespace eval invoices_admin_portlet {
 
     ad_proc -public get_pretty_name {
     } {
-        return [_ invoices-portlet.invoices_admin]
+        return "#invoices-portlet.invoices_admin#"
     }
 
     ad_proc -public link {
