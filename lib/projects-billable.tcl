@@ -41,7 +41,7 @@ if {[empty_string_p $package_id]} {
 }
 
 if {[empty_string_p $base_url]} {
-    set base_url [apm_package_url_from_id $package_id]
+    set base_url [apm_package_url_from_id [apm_package_id_from_key invoices]]
 }
 
 set dotlrn_club_id [lindex [application_data_link::get_linked -from_object_id $organization_id -to_object_type "dotlrn_club"] 0]
