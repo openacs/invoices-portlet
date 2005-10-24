@@ -102,7 +102,7 @@ template::list::create \
 	normal {
 	    label "[_ invoices.Table]"
 	    layout table
-	    row $row_list
+	    row "checkbox {} $row_list"
 	}
 	csv {
 	    label "[_ invoices.CSV]"
