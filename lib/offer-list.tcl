@@ -1,6 +1,6 @@
 set required_param_list [list]
-set optional_param_list [list orderby elements base_url package_id organization_id]
-set optional_unset_list [list]
+set optional_param_list [list orderby elements base_url package_id organization_id page]
+set optional_unset_list [list status_id]
 
 foreach required_param $required_param_list {
     if {![info exists $required_param]} {
@@ -106,6 +106,9 @@ template::list::create \
         organization_id {
             where_clause {t.organization_id = :organization_id}
         }
+	status)id {
+	    where_clause { 1 = 1 }
+	}
     } \
     -formats {
 	normal {

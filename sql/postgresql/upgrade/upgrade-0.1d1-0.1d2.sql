@@ -15,15 +15,9 @@
 --
 
 --
--- /invoices-portlet/sql/postgresql/invoices-portlet-create.sql
 --
 
--- Creates invoices portlet
-
--- Copyright (C) 2005 Cognovis
--- @author Bjoern Kiesbye (bjoern_kiesbye@web.de)
--- @creation-date 2005-16-06
-
+-- Creates invoices offers project portlet
 
 -- This is free software distributed under the terms of the GNU Public
 -- License version 2 or higher.  Full text of the license is available
@@ -35,8 +29,8 @@ declare
   ds_id portal_datasources.datasource_id%TYPE;
 begin
   ds_id := portal_datasource__new(
-         ''invoices_portlet'',
-         ''Displays the Invoices Portlet''
+         ''invoices_offers_project_portlet'',
+         ''Displays the Invoices Offers Project Portlet''
   );
 
   
@@ -98,9 +92,6 @@ begin
     );
 
 
-
-
-
    return 0;
 
 end;' language 'plpgsql';
@@ -116,8 +107,8 @@ begin
 	-- create the implementation
 	foo := acs_sc_impl__new (
 		''portal_datasource'',
-		''invoices_portlet'',
-		''invoices_portlet''
+		''invoices_offers_project_portlet'',
+		''invoices_offers_project_portlet''
 	);
 
    return 0;
@@ -137,57 +128,57 @@ begin
 	-- add all the hooks
 	foo := acs_sc_impl_alias__new (
 	       ''portal_datasource'',
-	       ''invoices_portlet'',
+	       ''invoices_offers_project_portlet'',
 	       ''GetMyName'',
-	       ''invoices_portlet::get_my_name'',
+	       ''invoices_offers_project_portlet::get_my_name'',
 	       ''TCL''
 	);
 
 	foo := acs_sc_impl_alias__new (
 	       ''portal_datasource'',
-	       ''invoices_portlet'',
+	       ''invoices_offers_project_portlet'',
 	       ''GetPrettyName'',
-	       ''invoices_portlet::get_pretty_name'',
+	       ''invoices_offers_project_portlet::get_pretty_name'',
 	       ''TCL''
 	);
 
 	foo := acs_sc_impl_alias__new (
 	       ''portal_datasource'',
-	       ''invoices_portlet'',
+	       ''invoices_offers_project_portlet'',
 	       ''Link'',
-	       ''invoices_portlet::link'',
+	       ''invoices_offers_project_portlet::link'',
 	       ''TCL''
 	);
 
 	foo := acs_sc_impl_alias__new (
 	       ''portal_datasource'',
-	       ''invoices_portlet'',
+	       ''invoices_offers_project_portlet'',
 	       ''AddSelfToPage'',
-	       ''invoices_portlet::add_self_to_page'',
+	       ''invoices_offers_project_portlet::add_self_to_page'',
 	       ''TCL''
 	);
 
 	foo := acs_sc_impl_alias__new (
 	       ''portal_datasource'',
-	       ''invoices_portlet'',
+	       ''invoices_offers_project_portlet'',
 	       ''Show'',
-	       ''invoices_portlet::show'',
+	       ''invoices_offers_project_portlet::show'',
 	       ''TCL''
 	);
 
 	foo := acs_sc_impl_alias__new (
 	       ''portal_datasource'',
-	       ''invoices_portlet'',
+	       ''invoices_offers_project_portlet'',
 	       ''Edit'',
-	       ''invoices_portlet::edit'',
+	       ''invoices_offers_project_portlet::edit'',
 	       ''TCL''
 	);
 
 	foo := acs_sc_impl_alias__new (
 	       ''portal_datasource'',
-	       ''invoices_portlet'',
+	       ''invoices_offers_project_portlet'',
 	       ''RemoveSelfFromPage'',
-	       ''invoices_portlet::remove_self_from_page'',
+	       ''invoices_offers_project_portlet::remove_self_from_page'',
 	       ''TCL''
 	);
 
@@ -208,7 +199,7 @@ begin
 	-- Add the binding
 	perform acs_sc_binding__new (
 	    ''portal_datasource'',
-	    ''invoices_portlet''
+	    ''invoices_offers_project_portlet''
 	);
 
    return 0;
@@ -216,10 +207,3 @@ begin
 end;' language 'plpgsql';
 select inline_0();
 drop function inline_0();
-
-\i invoices-list-portlet-create.sql
-\i invoices-offers-portlet-create.sql
-\i invoices-offers-project-portlet-create.sql
-\i invoices-admin-portlet-create.sql
-
-
