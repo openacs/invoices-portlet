@@ -11,6 +11,7 @@
            	to_char(sub.creation_date, :timestamp_format) as creation_date, 
 		total.count_total, 
 		billed.count_billed, 
+		billed.recipient_id,
 		name
 	from 
 	(
@@ -75,7 +76,8 @@
 	(
     		select 
 			count(i.invoice_id) as count_billed,
-			oi.item_id
+			oi.item_id,
+			i.recipient_id
     		from 
 			cr_items oi, 
 			iv_offer_items ofi
@@ -84,7 +86,7 @@
     		where 
 			ofi.offer_id = oi.latest_revision
 	    	group by 
-			oi.item_id
+			oi.item_id, i.recipient_id
     	) billed, 
 		cr_revisions r
 	where 

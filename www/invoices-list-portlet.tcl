@@ -1,5 +1,5 @@
 
-set row_list {invoice_nr {} title {} description {} total_amount {} paid_amount {} creation_user {} creation_date {} due_date {} action {}}
+set row_list {invoice_nr {} title {} description {} total_amount {} paid_amount {} recipient {} creation_user {} creation_date {} due_date {} action {}}
 
 set organization_id [lindex \
 			 [application_data_link::get_linked \

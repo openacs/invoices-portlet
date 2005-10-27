@@ -52,7 +52,11 @@ set t_closed_id [pm::task::default_status_closed]
 set date_format [lc_get formbuilder_date_format]
 set timestamp_format "$date_format [lc_get formbuilder_time_format]"
 set currency [iv::price_list::get_currency -organization_id $organization_id]
-set contacts_url [apm_package_url_from_key contacts]
+
+set contacts_p [apm_package_installed_p contacts]
+if { $contacts_p } {
+    set contacts_url [apm_package_url_from_key contacts]
+}
 
 set actions [list "[_ invoices.iv_invoice_New]" "${base_url}invoice-ae" "[_ invoices.iv_invoice_New2]" ]
 
@@ -77,6 +81,10 @@ template::list::create \
         description {
 	    label {[_ invoices.iv_invoice_project_descr]}
         }
+	recipient {
+	    label {[_ invoices.iv_invoice_recipient]}
+	    display_template "@projects.recipient;noquote@"
+	}
         amount_open {
 	    label {[_ invoices.iv_invoice_amount_open]}
 	    display_template {@projects.amount_open@ @currency@}
@@ -113,7 +121,14 @@ template::list::create \
     }
 
 
-db_multirow -extend {project_link} projects projects_to_bill {} {
+
+db_multirow -extend {project_link recipient} projects projects_to_bill {} {
     set project_link [export_vars -base "${pm_base_url}one" {{project_item_id $project_id}}]
     set amount_open [format "%.2f" $amount_open]
+
+    if { $contacts_p } {
+	set recipient "<a href=\"[contact::url -party_id $recipient_id]\">[contact::name -party_id $recipient_id]</a>"
+    } else {
+	set recipient [person::name -person_id $recipient_id]
+    }
 }

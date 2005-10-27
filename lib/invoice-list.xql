@@ -12,6 +12,7 @@
 		t.currency, 
 		t.paid_amount,
 	   	t.paid_currency, 
+	        t.recipient_id,
 		p.first_names, 
 		p.last_name, 
 		o.creation_user,

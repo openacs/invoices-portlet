@@ -1,6 +1,6 @@
 # packages/invoices-portlet/www/invoices-portlet.tcl
 
-set row_list { title {} description {}  creation_date {} amount_open {} count_total {} count_billed {} }
+set elements_list [list title description recipient creation_date amount_open count_total count_billed]
 
 set community_id [dotlrn_community::get_community_id_from_url]
 # set base_url "[dotlrn_community::get_community_url $community_id]"
