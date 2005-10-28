@@ -7,7 +7,7 @@
     <initial-install-p>f</initial-install-p>
     <singleton-p>f</singleton-p>
     
-    <version name="0.1d2" url="http://openacs.org/repository/download/apm/invoices-portlet-0.1d2.apm">
+    <version name="0.4d2" url="http://openacs.org/repository/download/apm/invoices-portlet-0.4d2.apm">
         <owner url="mailto:kiesbye@theservice.de">Kiesbye Kiesbye</owner>
         <owner url="mailto:sussdorff@sussdorff.de">Malte Sussdorff</owner>
         <summary>Invoices Portlet</summary>
@@ -15,7 +15,7 @@
         <description format="text/html">Invoices Portlet</description>
         <maturity>0</maturity>
 
-        <provides url="invoices-portlet" version="0.1d2"/>
+        <provides url="invoices-portlet" version="0.4d2"/>
         <requires url="invoices" version="0.01d1"/>
 
         <callbacks>
