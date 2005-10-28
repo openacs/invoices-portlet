@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<message_catalog package_key="invoices-portlet" package_version="0.1d1" locale="de_DE" charset="ISO-8859-1">
+
+  <msg key="admin_portlet">Rechnungs Administration</msg>
+  <msg key="invoices_admin">Rechnungs Administration</msg>
+  <msg key="invoices_list_portlet">Rechnungsliste</msg>
+  <msg key="invoices_offers_portlet">Angebote</msg>
+  <msg key="invoices_portlet">Rechnungen</msg>
+  <msg key="offers_portlet">Angebote</msg>
+  <msg key="projects_billable">Abrechenbare Projekte</msg>
+</message_catalog>
