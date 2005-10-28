@@ -12,7 +12,8 @@
 		total.count_total, 
 		billed.count_billed, 
 		billed.recipient_id,
-		name
+		name,
+		sub.organization_id	
 	from 
 	(
 		select 
@@ -20,7 +21,7 @@
 			pr.revision_id, 
 			o.creation_date,
 	   		sum(ofi.item_units * ofi.price_per_unit * (1-(ofi.rebate/100))) as amount_open,
-           		p.customer_id, 
+           		p.customer_id as organization_id, 
 			(oz.name ) as name
     		from 
 			cr_items pi, 
