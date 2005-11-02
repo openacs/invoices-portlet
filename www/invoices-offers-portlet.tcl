@@ -6,7 +6,6 @@ set row_list {offer_nr {} title {} description {} amount_total {} creation_user 
 set user_id [ad_conn user_id]
 set community_id [dotlrn_community::get_community_id_from_url]
 set package_id [apm_package_id_from_key invoices]
-set organization_id [lindex [application_data_link::get_linked -from_object_id $community_id -to_object_type "organization"] 0]
 
 if {[empty_string_p $community_id]} {
 
@@ -22,10 +21,12 @@ if {[empty_string_p $community_id]} {
 
 	  lappend project_manager_ids $node_info(package_id)
       }
+    set organization_id ""
 
 } else {
 
     set node "[site_node::get -url "[dotlrn_community::get_community_url $community_id]project-manager" ]"
+    set organization_id [lindex [application_data_link::get_linked -from_object_id $community_id -to_object_type "organization"] 0]
     
     array set node_info $node
 

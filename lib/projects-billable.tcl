@@ -41,7 +41,6 @@ set p_closed_id [pm::project::default_status_closed]
 set t_closed_id [pm::task::default_status_closed]
 set date_format [lc_get formbuilder_date_format]
 set timestamp_format "$date_format [lc_get formbuilder_time_format]"
-set currency [iv::price_list::get_currency -organization_id $organization_id]
 
 set contacts_p [apm_package_installed_p contacts]
 if { $contacts_p } {
@@ -116,6 +115,7 @@ db_multirow -extend {project_link currency} projects projects_to_bill {} {
     set amount_open [format "%.2f" $amount_open]
     set dotlrn_club_id [lindex [application_data_link::get_linked -from_object_id $organization_id -to_object_type "dotlrn_club"] 0]
     set pm_base_url [apm_package_url_from_id [dotlrn_community::get_package_id_from_package_key -package_key "project-manager" -community_id $dotlrn_club_id]]
+    set currency [iv::price_list::get_currency -organization_id $organization_id]
     set project_link [export_vars -base "${pm_base_url}one" {{project_item_id $project_id}}]
     set currency [iv::price_list::get_currency -organization_id $organization_id]
     if { $contacts_p } {
