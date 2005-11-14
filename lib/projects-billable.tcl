@@ -111,7 +111,7 @@ template::list::create \
     }
 
 
-db_multirow -extend {project_link currency} projects projects_to_bill {} {
+db_multirow -extend {project_link currency recipient} projects projects_to_bill {} {
     set amount_open [format "%.2f" $amount_open]
     set dotlrn_club_id [lindex [application_data_link::get_linked -from_object_id $organization_id -to_object_type "dotlrn_club"] 0]
     set pm_base_url [apm_package_url_from_id [dotlrn_community::get_package_id_from_package_key -package_key "project-manager" -community_id $dotlrn_club_id]]
