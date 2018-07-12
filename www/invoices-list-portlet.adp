@@ -9,7 +9,7 @@
       <td>#invoices.iv_invoice_end_date# <input type=text name="end_date" size=12 value="@end_date@" id=sel2><input type='reset' value=' ... ' onclick="return showCalendar('sel2', 'y-m-d');"></td></td>
       <td><input type=submit name="submit" value="#invoices.ok#"></td>
     </tr>
-    <if @clear_p@ eq 1>
+    <if @clear_p;literal@ true>
       <tr>
         <td><a href="@clear_link@">#invoices.clear#</a></td>
       </tr>

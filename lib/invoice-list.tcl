@@ -22,7 +22,7 @@ set dotlrn_club_id [lindex [application_data_link::get_linked -from_object_id $o
 set pm_base_url [apm_package_url_from_id [dotlrn_community::get_package_id_from_package_key -package_key "project-manager" -community_id $dotlrn_club_id]]
 
 
-# Using the the same instance of invoices
+# Using the same instance of invoices
 set package_id [apm_package_id_from_key invoices]
 
 set community_id [dotlrn_community::get_community_id]
@@ -71,7 +71,7 @@ template::list::create \
 	    label {[_ invoices.iv_invoice_due_date]}
 	}
         action {
-	    display_template {<if @iv_invoice.cancelled_p@ eq f><a href="@iv_invoice.edit_link@">#invoices.Edit#</a>&nbsp;<a href="@iv_invoice.cancel_link@">#invoices.Cancel#</a></if><if @paid_currency@ nil>&nbsp;<a href="@iv_invoice.delete_link@">#invoices.Delete#</a></if>
+	    display_template {<if @iv_invoice.cancelled_p;literal@ false><a href="@iv_invoice.edit_link@">#invoices.Edit#</a>&nbsp;<a href="@iv_invoice.cancel_link@">#invoices.Cancel#</a></if><if @paid_currency@ nil>&nbsp;<a href="@iv_invoice.delete_link@">#invoices.Delete#</a></if>
 	    }
 	}
     } -actions $actions -sub_class narrow \
