@@ -1,3 +1,5 @@
+<script src="/resources/acs-templating/calendar.js"></script>
+
 <table width="100%">
 <tr>
 <td>
